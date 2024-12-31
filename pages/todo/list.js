@@ -12,7 +12,7 @@ class TodoList extends Component {
 
   static async getInitialProps() {
     try {
-      const response = await fetch('http://localhost:3001/api/todos', {
+      const response = await fetch('http://localhost:3000/api/todos', {
         headers: TodoList.headers
       });
       const initialTodos = await response.json();

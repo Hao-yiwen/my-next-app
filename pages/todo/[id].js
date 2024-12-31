@@ -9,7 +9,7 @@ class TodoService {
   };
 
   static async getTodos() {
-    const response = await fetch('http://localhost:3001/api/todos', {
+    const response = await fetch('http://localhost:3000/api/todos', {
       headers: this.headers
     });
     const todos = await response.json();
@@ -17,7 +17,7 @@ class TodoService {
   }
 
   static async getTodoById(id) {
-    const response = await fetch(`http://localhost:3001/api/todos/${id}`, {
+    const response = await fetch(`http://localhost:3000/api/todos/${id}`, {
       headers: this.headers
     });
     const todo = await response.json();
