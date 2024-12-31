@@ -144,6 +144,13 @@ class TodoList extends Component {
               </li>
             ))}
           </ul>
+
+          <Link 
+            href="/posts" 
+            className="text-blue-500 hover:text-blue-600 ml-4"
+          >
+            View Blog Posts
+          </Link>
         </main>
       </>
     );

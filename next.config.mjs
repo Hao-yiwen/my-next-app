@@ -18,6 +18,10 @@ const nextConfig = {
         source: '/todo/:id',
         destination: '/todo/:id',
       },
+      {
+        source: '/posts',
+        destination: '/posts',
+      }
     ];
   },
 };
