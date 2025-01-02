@@ -2,9 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   // 启用 App Router
-  experimental: {
-    appDir: true,
-  },
+  // experimental: {
+  //   appDir: true,
+  // },
   async rewrites() {
     return [
       // 主页路由
