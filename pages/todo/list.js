@@ -7,13 +7,15 @@ import { ROUTES } from '@/constants/routes';
 class TodoList extends Component {
   static headers = {
     'Content-Type': 'application/json',
-    'x-api-key': 'your-api-key'
+    'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
+    credentials: 'include'
   };
 
   static async getInitialProps() {
     try {
       const response = await fetch('http://localhost:3000/api/todos', {
-        headers: TodoList.headers
+        headers: TodoList.headers,
+        credentials: 'include'
       });
       const initialTodos = await response.json();
       return { initialTodos };
@@ -145,12 +147,20 @@ class TodoList extends Component {
             ))}
           </ul>
 
-          <Link 
-            href="/posts" 
-            className="text-blue-500 hover:text-blue-600 ml-4"
-          >
-            View Blog Posts
-          </Link>
+          <div className="mt-4 space-x-4">
+            <Link 
+              href="/posts" 
+              className="text-blue-500 hover:text-blue-600"
+            >
+              View Blog Posts
+            </Link>
+            <Link 
+              href="/users" 
+              className="text-blue-500 hover:text-blue-600"
+            >
+              View Users
+            </Link>
+          </div>
         </main>
       </>
     );

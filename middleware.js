@@ -39,6 +39,18 @@ export function middleware(request) {
   response.headers.set('x-request-time', requestTime);
   response.headers.set('x-powered-by', 'Next.js Middleware');
 
+  // 添加 CORS 头
+  response.headers.set('Access-Control-Allow-Origin', 
+    process.env.NODE_ENV === 'development' 
+      ? 'http://localhost:3001' 
+      : process.env.NEXT_PUBLIC_API_URL
+  );
+  response.headers.set('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  response.headers.set('Access-Control-Allow-Headers', 
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, x-api-key'
+  );
+  response.headers.set('Access-Control-Allow-Credentials', 'true');
+
   return response;
 }
 

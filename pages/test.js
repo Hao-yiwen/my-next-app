@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import './test.css'
 
 // 水合报错探索
 const headers = {
@@ -15,7 +15,7 @@ export default function Test({ initialData }) {
     }, []);
 
     return (
-        <div className='flex justify-center items-center h-screen'>
+        <div className='test'>
             <div>{data}</div>
         </div>
     )

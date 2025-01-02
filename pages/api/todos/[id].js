@@ -1,9 +1,12 @@
+import { cors } from '@/lib/cors';
 import { todos } from '../todos';
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
+  // 处理 CORS
+  if (cors(req, res)) return;
+
   const { id } = req.query;
   const todoId = parseInt(id);
-  console.log(todoId, '====');
   
   const todo = todos ? todos.find(t => t.id === todoId) : null;
   

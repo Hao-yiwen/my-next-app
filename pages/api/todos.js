@@ -1,6 +1,11 @@
+import { cors } from '@/lib/cors';
+
 let todos = [];
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
+  // 处理 CORS
+  if (cors(req, res)) return;
+
   switch (req.method) {
     case 'GET':
       return res.status(200).json(todos);
